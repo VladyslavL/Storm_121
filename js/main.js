@@ -1,31 +1,38 @@
 document.addEventListener('DOMContentLoaded', function(){
   // Init HLS
-  var player = document.querySelector('.hero__video');
-  if(!Hls.isSupported() && window.MSInputMethodContext) {
-    console.log('flash')
-    player.classList.add('video-js')
-    player.classList.add('vjs-default-skin')
-    var videojsPlayer = videojs(player, {
-      fluid: true
-    });
+  var player = document.querySelector('.hero__video'),
+      playerHasDataSrc = false;
+  if(player.hasAttribute('data-src')){
+    playerHasDataSrc = true;
   }
 
-  var initHLS = function(){
-    if(Hls.isSupported()) {
-      var hls = new Hls();
-      hls.loadSource(player.getAttribute('data-src'));
-      hls.attachMedia(player);
-      // hls.config.debug = true;
-   }else{
-     player.src = player.getAttribute('data-src');
-     console.log('no hls');
-     if(window.MSInputMethodContext) {
-       videojsPlayer.src(
-         {
-           src: player.src
-         }
-       );
-     }
+  if(playerHasDataSrc){
+    if(!Hls.isSupported() && window.MSInputMethodContext) {
+      console.log('flash')
+      player.classList.add('video-js')
+      player.classList.add('vjs-default-skin')
+      var videojsPlayer = videojs(player, {
+        fluid: true
+      });
+    }
+  
+    var initHLS = function(){
+      if(Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(player.getAttribute('data-src'));
+        hls.attachMedia(player);
+        // hls.config.debug = true;
+     }else{
+       player.src = player.getAttribute('data-src');
+       console.log('no hls');
+       if(window.MSInputMethodContext) {
+         videojsPlayer.src(
+           {
+             src: player.src
+           }
+         );
+       }
+      }
     }
   }
 
@@ -51,7 +58,9 @@ document.addEventListener('DOMContentLoaded', function(){
   var clickEventType = ((document.ontouchstart!==null)?'click':'touchstart');
   console.log(clickEventType)
 
-  initHLS();
+  if(playerHasDataSrc){
+    initHLS();
+  }
   videoWatcher();
 
   if(document.querySelector('.carousel') !== null){
@@ -62,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function(){
       "gutter": 0,
       "controls": false,
       "mouseDrag": true,
+      "loop": false,
       "responsive": {
         "576": {
           "items": 2,
@@ -74,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
       },
     });
   
-    // // Dssabling click event triggering on carousel dragging/swipping
+    // // Disabling click event triggering on carousel dragging/swiping
     var isSliding = false;
     carousel.events.on('touchMove', function() {
         isSliding = true;
@@ -97,14 +107,16 @@ document.addEventListener('DOMContentLoaded', function(){
             event.preventDefault();
             return false;
           }
-          player.src = this.getAttribute('data-src');
-          document.querySelector('.topbar').scrollIntoView({behavior: 'smooth'})
-          if(Hls.isSupported()) {
-            initHLS();
-          }
-          player.play();
-          if (videojsPlayer !== undefined){
-            videojsPlayer.play();
+          if(this.hasAttribute('data-src')){
+            player.setAttribute('data-src', this.getAttribute('data-src'));
+            document.querySelector('.topbar').scrollIntoView({behavior: 'smooth'})
+            if(Hls.isSupported()) {
+              initHLS();
+            }
+            player.play();
+            if (videojsPlayer !== undefined){
+              videojsPlayer.play();
+            }
           }
         });
       }

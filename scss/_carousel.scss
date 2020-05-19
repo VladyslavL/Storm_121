@@ -1,5 +1,7 @@
 .carousel{
   margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
   @include respond-above(sm){
     margin-top: 10rem;
   }
