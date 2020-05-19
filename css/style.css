@@ -426,6 +426,7 @@ img {
 
 .carousel__slide {
   cursor: pointer;
+  text-decoration: none;
 }
 
 .carousel__slide .overlay img {
