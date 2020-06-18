@@ -1,153 +1,196 @@
 <!DOCTYPE html>
-<html lang="nb" data-page-id="{{ landing_page_id }}" data-register-event='{% url "register_event" uuid=phase.uuid %}'>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="the page description">
-  <title>Storm121 - Template</title>
+<html
+  lang="nb"
+  data-page-id="{{ landing_page_id }}"
+  data-register-event='{% url "register_event" uuid=phase.uuid %}'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="the page description" />
+    <title>Storm121 - Template</title>
 
-  <script>window.MSInputMethodContext && document.documentMode && document.write('<script src="js/ie11CustomProperties.js"><\x2fscript>');</script>
+    <script>
+      window.MSInputMethodContext &&
+        document.documentMode &&
+        document.write('<script src="js/ie11CustomProperties.js"><\x2fscript>');
+    </script>
 
-  <script>
-    function isIE() {
-      var ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
-      var msie = ua.indexOf('MSIE '); // IE 10 or older
-      var trident = ua.indexOf('Trident/'); //IE 11
+    <script>
+      function isIE() {
+        var ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
+        var msie = ua.indexOf("MSIE "); // IE 10 or older
+        var trident = ua.indexOf("Trident/"); //IE 11
 
-      return (msie > 0 || trident > 0);
-    }
-    if(isIE()){ 
-      document.write('<link href="css/video-js.css" rel="stylesheet">')
-      document.write('<script src="js/video.min.js"><\x2fscript>')
-      document.write('<script src="js/videojs-flash.js"><\x2fscript>')
-      document.write('<script src="js/videojs-contrib-hls.min.js"><\x2fscript>')
-    }
-  </script>
+        return msie > 0 || trident > 0;
+      }
+      if (isIE()) {
+        document.write('<link href="css/video-js.css" rel="stylesheet">');
+        document.write('<script src="js/video.min.js"><\x2fscript>');
+        document.write('<script src="js/videojs-flash.js"><\x2fscript>');
+        document.write('<script src="js/videojs-contrib-hls.min.js"><\x2fscript>');
+      }
+    </script>
 
-  <link rel="stylesheet" href="css/tiny-slider.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav class="topbar">
-    <div class="container d-flex align-items-center justify-content-center justify-sm-content-between">
-      <a href="#" class="topbar__logo d-block" title="Gå til WWF nettsiden">
-        <img src="img/logo.svg" alt="">
-      </a>
+    <link rel="stylesheet" href="css/tiny-slider.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="container d-flex align-items-center justify-content-center justify-sm-content-between">
+        <a href="#" class="topbar__logo d-block" title="Gå til WWF nettsiden">
+          <img src="img/logo.svg" alt="" />
+        </a>
 
-      <button class="btn btn--brand scroll_down hide-on-small-tablet">
-        <div class="btn__content d-flex justify-content-center align-items-center">Del film</div>
-      </button>
-    </div>
-  </nav>
+        <button class="btn btn--brand scroll_down hide-on-small-tablet">
+          <div class="btn__content d-flex justify-content-center align-items-center">Del film</div>
+        </button>
+      </div>
+    </nav>
 
-  <div class="hero position-relative">
-    <video controls id="main-video" class="hero__video" data-src="video/index.m3u8" type="application/x-mpegURL" poster="img/poster.jpg">
-      <track src="track/track.vtt" kind="subtitles" srclang="en" label="English" default>
-      <track src="track/track.vtt" kind="subtitles" srclang="no" label="Norwegian">
-    </video>
+    <div class="hero position-relative">
+      <video
+        controls
+        id="main-video"
+        class="hero__video"
+        data-src="video/index.m3u8"
+        type="application/x-mpegURL"
+        poster="img/poster.jpg"
+      >
+        <track src="track/track.vtt" kind="subtitles" srclang="en" label="English" default />
+        <track src="track/track.vtt" kind="subtitles" srclang="no" label="Norwegian" />
+      </video>
 
-    <div class="d-flex align-items-center justify-content-center">
-      <div>
-        <img src="img/icons/play.svg" alt="" class="hero__play cursor-pointer">
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <img src="img/icons/play.svg" alt="" class="hero__play cursor-pointer" />
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="content">
-    <div class="container">
-      <div class="content__body">
-        <div class="content__mask">
-          <div class="content__buttons d-xs-flex align-items-center justify-content-end">
-            <a href="#" class="btn btn--default" target="_blank" title="Besøk Coop.no" rel="noopener">
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/globe.svg" alt="Besøk Coop.no">
-                <span class="hide-on-mobile">Besøk Coop.no</span>
-              </div>
-            </a>
-            <a href="#" class="btn btn--fb" target="_blank" title="Del på Facebook" rel="noopener">
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/fcbk.svg" alt="Facebook">
-                <span class="hide-on-mobile">Share on Facebook</span>
-              </div>
-            </a>
-            <a href="#" class="btn btn--in" target="_blank" title="Del på LinkedIn" rel="noopener">
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/lnkdn.svg" alt="LinkedIn">
-                <span class="hide-on-mobile">Share on LinkedIn</span>
-              </div>
-            </a>
-            <a href="#" class="btn btn--fbm show-on-small-tablet" title="Del på Facebook Messenger" target="_blank" rel="noopener">
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/messenger.svg" alt="Facebook messenger">
-                <span class="hide-on-mobile">Share on Messenger</span>
-              </div>
-            </a>
-            <a href="#" class="btn btn--default" target="_blank" title="Send link med e-post" rel="noopener">
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/email.svg" alt="Send link med e-post">
-                <span class="hide-on-mobile">Send link med e-post</span>
-              </div>
-            </a>
-            <a href="#" class="btn btn--default" title="Last ned filmen" download>
-              <div class="btn__content d-flex align-items-center justify-content-center">
-                <img src="img/icons/download.svg" alt="download">
-                <span class="hide-on-mobile">Download</span>
-              </div>
-            </a>
-          </div>
-
-          <h1 class="content__body-header">Hei Ann!</h1>
-
-          <div class="content__body-columns two-columns">
-            <p class="content__body-text">Varepåfylling er både tungt og tidkrevende. Nå er det masse nye beste praksis verktøy tilgjengelig på intranett, samt et e-kurs i læringsportalen.</p>
-            <p class="content__body-text">Håper det kan være til hjelp!</p>
-            <a href="#" class="btn btn--brand">
-              <div class="btn__content d-flex align-items-center justify-content-center">Følg linken her</div>
-            </a>
-            <p class="content__body-text">Dersom ikke linken til intranett fungerer finner dere frem
-              ved å:</p>
-            <ul class="content__body-list">
-              <li>Gå til butikk og salg på intranett</li>
-              <li>Gå videre til Beste praksis og butikkrutiner</li>
-              <li>Send innspill til <a href="mailto:smart@coop.no">smart@coop.no</a> dersom du forbedringsforslag</li>
-            </ul>
-            <p class="content__body-text">Målgruppen for rutiner er butikksjef, mens målgruppen for metodekort, sjekklister, mm. er øvrige ansatte som jobber med varepåfylling.</p>
-          </div>
-
-          <div class="carousel">
-            <a href="https://e24.no/annonsorinnhold/e/storm121/lagde-personlige-hilsener-til-flere-tusen-ansatte/" class="carousel__slide">
-              <div class="slide__media position-relative">
-                <div class="content">
-                  <img src="img/poster.jpg" alt="">
+    <div class="content">
+      <div class="container">
+        <div class="content__body">
+          <div class="content__mask">
+            <div class="content__buttons d-xs-flex align-items-center justify-content-end">
+              <a href="#" class="btn btn--default" target="_blank" title="Besøk Coop.no" rel="noopener">
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/globe.svg" alt="Besøk Coop.no" />
+                  <span class="hide-on-mobile">Besøk Coop.no</span>
                 </div>
-                <div class="overlay overlay--dark d-flex justify-content-center align-items-center">
-                  <div>
-                    <img src="img/icons/play--secondary.svg" alt="">
-                  </div>
+              </a>
+              <a href="#" class="btn btn--fb" target="_blank" title="Del på Facebook" rel="noopener">
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/fcbk.svg" alt="Facebook" />
+                  <span class="hide-on-mobile">Share on Facebook</span>
                 </div>
-              </div>
-  
-              <h2 class="slide__subheader">Subheader</h2>
-              <h1 class="slide__header text-caps">Change text here</h1>
-            </a>
-            <div class="carousel__slide" data-src="https://video.storm121.com/internal/result/Nils/index.m3u8">
-              <div class="slide__media position-relative">
-                <div class="content">
-                  <img src="img/poster.jpg" alt="">
+              </a>
+              <a href="#" class="btn btn--in" target="_blank" title="Del på LinkedIn" rel="noopener">
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/lnkdn.svg" alt="LinkedIn" />
+                  <span class="hide-on-mobile">Share on LinkedIn</span>
                 </div>
-                <div class="overlay overlay--dark d-flex justify-content-center align-items-center">
-                  <div>
-                    <img src="img/icons/play--secondary.svg" alt="">
-                  </div>
+              </a>
+              <a
+                href="#"
+                class="btn btn--fbm show-on-small-tablet"
+                title="Del på Facebook Messenger"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/messenger.svg" alt="Facebook messenger" />
+                  <span class="hide-on-mobile">Share on Messenger</span>
                 </div>
-              </div>
-  
-              <h2 class="slide__subheader">Subheader</h2>
-              <h1 class="slide__header text-caps">Change text here</h1>
+              </a>
+              <a
+                href="#"
+                class="btn btn--default"
+                target="_blank"
+                title="Send link med e-post"
+                rel="noopener"
+              >
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/email.svg" alt="Send link med e-post" />
+                  <span class="hide-on-mobile">Send link med e-post</span>
+                </div>
+              </a>
+              <a href="#" class="btn btn--default" title="Last ned filmen" download>
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  <img src="img/icons/download.svg" alt="download" />
+                  <span class="hide-on-mobile">Download</span>
+                </div>
+              </a>
             </div>
-            <!-- <div class="carousel__slide" data-src="video/index.m3u8">
+
+            <h1 class="content__body-header">Hei Ann!</h1>
+
+            <div class="content__body-columns two-columns">
+              <p class="content__body-text">
+                Varepåfylling er både tungt og tidkrevende. Nå er det masse nye beste praksis verktøy
+                tilgjengelig på intranett, samt et e-kurs i læringsportalen.
+              </p>
+              <p class="content__body-text">Håper det kan være til hjelp!</p>
+              <a href="#" class="btn btn--brand">
+                <div class="btn__content d-flex align-items-center justify-content-center">
+                  Følg linken her
+                </div>
+              </a>
+              <p class="content__body-text">
+                Dersom ikke linken til intranett fungerer finner dere frem ved å:
+              </p>
+              <ul class="content__body-list">
+                <li>Gå til butikk og salg på intranett</li>
+                <li>Gå videre til Beste praksis og butikkrutiner</li>
+                <li>
+                  Send innspill til <a href="mailto:smart@coop.no">smart@coop.no</a> dersom du
+                  forbedringsforslag
+                </li>
+              </ul>
+              <p class="content__body-text">
+                Målgruppen for rutiner er butikksjef, mens målgruppen for metodekort, sjekklister, mm. er
+                øvrige ansatte som jobber med varepåfylling.
+              </p>
+            </div>
+
+            <div class="carousel">
+              <a
+                href="https://e24.no/annonsorinnhold/e/storm121/lagde-personlige-hilsener-til-flere-tusen-ansatte/"
+                class="carousel__slide"
+              >
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                  <div class="overlay d-flex justify-content-center align-items-center">
+                    <div></div>
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </a>
+              <div
+                class="carousel__slide"
+                data-src="https://video.storm121.com/internal/result/Nils/index.m3u8"
+              >
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                  <div class="overlay d-flex justify-content-center align-items-center">
+                    <div>
+                      <img src="img/icons/play--secondary.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+              <!-- <div class="carousel__slide" data-src="video/index.m3u8">
               <div class="slide__media position-relative">
                 <div class="content">
                   <img src="img/poster.jpg" alt="">
@@ -192,34 +235,105 @@
               <h2 class="slide__subheader">Subheader</h2>
               <h1 class="slide__header text-caps">Change text here</h1>
             </div> -->
-          </div>
+            </div>
 
-          <div class="logos">
-            <h1 class="content__body-header">Ønske for innhold på landingsside</h1>
-            <div class="logos__grid">
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
-              <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt=""></div>
+            <div class="content__grid">
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+
+              <div class="carousel__slide">
+                <div class="slide__media position-relative">
+                  <div class="content">
+                    <img src="img/poster.jpg" alt="" />
+                  </div>
+                </div>
+
+                <h2 class="slide__subheader">Subheader</h2>
+                <h1 class="slide__header text-caps">Change text here</h1>
+              </div>
+            </div>
+
+            <div class="logos">
+              <h1 class="content__body-header">Ønske for innhold på landingsside</h1>
+              <div class="logos__grid">
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+                <div><img src="https://i.picsum.photos/id/1040/100/50.jpg" alt="" /></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer d-sm-flex justify-content-center text-center text-caps">
-    <p>© 2020 coop. ALL RIGHTS RESERVED</p>
-    <p>POWERED BY  <a href="http://storm121.com" title="Gå til Storm 121 nettsiden" target="_blank"><b>STORM 121</b></a></p>
-  </div>
-  
-  <script src="js/tiny-slider.js"></script>
-  <script src="js/hls.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/webfont.js"></script>
-  <script src="js/font-config.js"></script>
-</body>
+    <div class="footer d-sm-flex justify-content-center text-center text-caps">
+      <p>© 2020 coop. ALL RIGHTS RESERVED</p>
+      <p>
+        POWERED BY
+        <a href="http://storm121.com" title="Gå til Storm 121 nettsiden" target="_blank"><b>STORM 121</b></a>
+      </p>
+    </div>
+
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/hls.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/webfont.js"></script>
+    <script src="js/font-config.js"></script>
+  </body>
 </html>

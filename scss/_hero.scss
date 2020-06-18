@@ -1,11 +1,11 @@
 .hero{
   max-width: 116rem;
-  max-height: 85vh;
   margin-left: auto;
   margin-right: auto;
   &__video{
     display: block;
     width: 100%;
+    max-height: 85vh;
     outline: none;
     background: #000;
     &.playing,
